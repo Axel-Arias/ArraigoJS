@@ -156,6 +156,14 @@ header a {
   height: fit-content;
 }
 
+.buttonFav {
+  background-color: #98ee99;
+  border-radius: 15%;
+}
+.buttonFav:hover {
+  background-color: darkgreen;
+}
+
 .card {
   display: flex;
   flex-direction: column;
