@@ -32,7 +32,6 @@ class producto {
         const btnAgregar = document.getElementById(this.id)
         const productoEncontrado = productos.find(product => product.id == this.id)
         btnAgregar.addEventListener('click',() => agregarAlCarrito(productoEncontrado))
-
     }
 }
 
@@ -71,7 +70,17 @@ function agregarAlCarrito(producto){
         ]
     }
     contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+    
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Planta agregada al carrito',
+        showConfirmButton: false,
+        timer: 1500
+      })
 }
 
 const contador = document.getElementById('cartCounter')
 contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+
+
