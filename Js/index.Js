@@ -84,3 +84,31 @@ const contador = document.getElementById('cartCounter')
 contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 
 
+
+let botonPlantaSugerida = document.getElementById("botonPlantaSugerida");
+botonPlantaSugerida.onclick = (e) => {
+
+    let seccionRecomendacion = document.createElement("div");
+
+        fetch("../plantas.json")
+            .then(respuesta => respuesta.json())
+            .then(result => {
+                let datos = result;
+                let planta = datos[Math.floor(Math.random() * ((datos.length+1) - 1) + 1)].planta;
+                console.log(planta)
+
+                seccionRecomendacion.innerHTML = `<div class="sectionContainer">
+                                <div class="sectionRecomendacion">
+                                    <p>${planta} </p>
+                                    <a href="productos.html"> Volver </a>
+                                </div>
+                            
+                            </div>;`
+
+            })
+            .catch(error => console.log(error))
+
+
+    document.body.appendChild(seccionRecomendacion);
+}
+
